@@ -8,20 +8,11 @@ namespace WebApi_Server.Controllers
     [Route("api/patient")]
     public class PatientController : Controller
     {
-        private Patient p = new Patient()
-        {
-            Name = "Kiss Zsiga",
-            Address = "Biharbasznád, Jókai 9",
-            Id = 1,
-            SocialSecurityNumber = "45465465",
-            Symptom = "tüdőembólia"
-        };
-    [HttpGet]
+        [HttpGet]
         public ActionResult<IEnumerable<Patient>> Get()
         {
             var patients = PatientRepository.LoadPatients();
-            patients.ToList().Add(p);
-            return Ok(p);
+            return Ok(patients);
         }
 
         [HttpGet("{id}")]
@@ -45,7 +36,6 @@ namespace WebApi_Server.Controllers
 
             patient.Id = GetNewId(patients);
             patients.Add(patient);
-
             PatientRepository.SavePatients(patients);
             return Ok();
         }
@@ -58,8 +48,8 @@ namespace WebApi_Server.Controllers
             var patientToUpdate = patients.FirstOrDefault(p => p.Id == patient.Id);
             if (patientToUpdate != null)
             {
-               //TODO
-
+                patients.Remove(patientToUpdate);
+                patients.Add(patient);
                 PatientRepository.SavePatients(patients);
                 return Ok();
             }

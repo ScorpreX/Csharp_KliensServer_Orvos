@@ -14,6 +14,6 @@ app.MapControllers();
 
 
 //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5000") });
-app.UseCors(o => o.AllowAnyMethod().AllowAnyMethod());
+app.UseCors(o => o.AllowAnyMethod().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();

@@ -1,0 +1,30 @@
+﻿@page "/patients"
+
+<h3>Páciensek</h3>
+
+@if (Patients == null)
+{
+	<p><em>Betöltés...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Név</td>
+				<td>Cím</td>
+				<td>TAJ szám</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var p in Patients)
+			{
+				<tr>
+					<td>@p.Name</td>
+					<td>@p.Address</td>
+					<td>@p.SocialSecurityNumber</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}

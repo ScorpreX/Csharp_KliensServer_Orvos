@@ -1,0 +1,48 @@
+﻿@page "/patients/{Id}"
+
+
+@if (Patient == null)
+{
+	<p><em>Betöltés...</em></p>
+}
+else
+{
+<h3>@Patient.Name adatai</h3>
+
+<EditForm Model="@Patient" OnValidSubmit="@ModifyPatient">
+	<div class="form-group row">
+		<label for="Name" class="col-md-2 col-form-label">Név</label>
+		<div class="col-md-10">
+			<InputText id="Name" class="form-control" @bind-Value="@Patient.Name"></InputText>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="Address" class="col-md-2 col-form-label">Cím</label>
+		<div class="col-md-10">
+			<InputText id="Address" class="form-control" @bind-Value="@Patient.Address"></InputText>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="SSN" class="col-md-2 col-form-label">TAJ-szám</label>
+		<div class="col-md-10">
+			<InputText id="SSN" class="form-control" @bind-Value="@Patient.SocialSecurityNumber"></InputText>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="Description" class="col-md-2 col-form-label">Panasz</label>
+		<div class="col-md-10">
+			<InputTextArea id="Description" class="form-control" @bind-Value="@Patient.Description"></InputTextArea>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="Symptom" class="col-md-2 col-form-label">Diagnózis</label>
+		<div class="col-md-10">
+			<InputTextArea id="Symptom" class="form-control" @bind-Value="@Patient.Symptom"></InputTextArea>
+		</div>
+	</div>
+	<button type="submit" class="btn btn-primary">Módosítás</button>
+	<a href=@($"/patients/{Patient.Id}/delete") class="btn btn-danger">Páciens törlése</a>
+</EditForm>
+
+	
+}

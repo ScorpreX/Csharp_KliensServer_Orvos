@@ -1,0 +1,34 @@
+﻿@page "/add"
+
+
+<EditForm Model="@Patient" OnValidSubmit="@Submit">
+    <div class="mb-3 row">
+        <label for="Name" class="col-md-2 col-form-label">Név: </label>
+        <div class=" col-sm-8">
+            <InputText id="Name" class="form-control" @bind-Value="@Patient.Name" placeholder="Adja meg a teljes nevét"></InputText>
+        </div>
+    </div>
+    
+    <div class="mb-3 row">
+        <label for="address" class="col-md-2 col-form-label">Lakcím: </label>
+        <div class=" col-sm-8">
+            <InputText id="address" class="form-control" @bind-Value="@Patient.Address" placeholder="Adja meg jelenlegi lakcímét"></InputText>
+        </div>
+    </div>
+    
+    <div class="mb-3 row">
+        <label for="ssn" class="col-md-2 col-form-label">Taj szám: </label>
+        <div class=" col-sm-8">
+            <InputText id="ssn" class="form-control" @bind-Value="@Patient.SocialSecurityNumber" placeholder="Adja meg TAJ-számát"></InputText>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label for="symptom" class="col-md-2 col-form-label">Tünetek: </label>
+        <div class=" col-sm-8">
+            <InputText id="symptom" class="form-control" @bind-Value="@Patient.Symptom" placeholder="Írja be a tapasztalt tüneteket"></InputText>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Felvitel</button>
+</EditForm>

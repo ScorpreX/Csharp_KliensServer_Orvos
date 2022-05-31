@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using WebApi_Common.Models;
 
 namespace WebApi_Server.Repositories
@@ -11,7 +12,10 @@ namespace WebApi_Server.Repositories
         {
             if (File.Exists(_filename))
             {
-                var rawData = File.ReadAllText(_filename);
+                using var stream  = new FileStream(_filename, FileMode.Open, FileAccess.Read);
+                using var read = new StreamReader(stream, Encoding.UTF8);
+                string rawData = read.ReadToEnd();
+
                 var patients = JsonSerializer.Deserialize<IEnumerable<Patient>>(rawData);
                 return patients;
             }
@@ -22,7 +26,10 @@ namespace WebApi_Server.Repositories
         public static void SavePatients(IEnumerable<Patient> patients)
         {
             var rawData = JsonSerializer.Serialize(patients);
-            File.WriteAllText(_filename, rawData);
+            using var stream = new FileStream(_filename, FileMode.Open, FileAccess.Write);
+            using var write = new StreamWriter(stream, Encoding.UTF8);
+
+           write.WriteLine(rawData);
         }
     }
 }

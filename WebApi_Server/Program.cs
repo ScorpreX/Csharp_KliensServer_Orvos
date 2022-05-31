@@ -2,7 +2,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddCors();
 builder.Services.AddControllers();
+
+
 
 var app = builder.Build();
 
@@ -12,8 +15,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-
-//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:5000") });
-app.UseCors(o => o.AllowAnyMethod().AllowAnyMethod());
+app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 app.Run();

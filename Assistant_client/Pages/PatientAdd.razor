@@ -1,0 +1,19 @@
+﻿@page "/add" 
+<EditForm Model="@Patient" OnValidSubmit="@SubmitForm">
+    <div class="form-group row">
+        <label for="Name" class="col-sm-3">Name: </label>
+        <InputText id="Name" class="form-control col-sm-8" @bind-Value="@Patient.Name" placeholder="Enter your name"></InputText>
+    </div>
+
+    <div class="form-group row">
+        <label for="symptom" class="col-sm-3">Symptoms: </label>
+        <InputText id="symptom" class="form-control col-sm-8" @bind-Value="@Patient.Symptom" placeholder="Enter symptoms"></InputText>
+    </div>
+
+    <div class="form-group row">
+        <label for="ssn" class="col-sm-3">SSN number: </label>
+        <InputDate id="ssn" class="form-control col-sm-8" @bind-Value="@Patient.SocialSecurityNumber" placeholder="Enter SSN number"></InputDate>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</EditForm>

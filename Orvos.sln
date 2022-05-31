@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Server", "WebApi_Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common", "WebApi_Common\WebApi_Common.csproj", "{2C00989F-9B11-4BAC-A15B-D2BC92535F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrvosKliens", "OrvosKliens\OrvosKliens.csproj", "{B1D75C37-B3EA-4005-AABA-1C667FA2C571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrvosKliens", "OrvosKliens\OrvosKliens.csproj", "{B1D75C37-B3EA-4005-AABA-1C667FA2C571}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

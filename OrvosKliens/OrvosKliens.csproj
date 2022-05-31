@@ -10,4 +10,8 @@
     <ProjectReference Include="..\WebApi_Common\WebApi_Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

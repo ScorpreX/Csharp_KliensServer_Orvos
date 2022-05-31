@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "Name": "Teszt",
+    "Description": "Kill me",
+    "Address": "Igen utca 12",
+    "SocialSecurityNumber": "123 456 789",
+    "Symptom": "Kill him",
+    "RecordTime": "2017-09-08T19:01:55.714942+03:00"
+  },
+  {
+    "Id": 2,
+    "Name": "Ferenc",
+    "Description": "Kill me pls",
+    "Address": "Vidék 12",
+    "SocialSecurityNumber": "111 222 333",
+    "Symptom": "Öngyi",
+    "RecordTime": "2018-09-08T19:01:55.714942+03:00"
+  }
+]

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using OrvosKliens.Data;
+//using OrvosKliens.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

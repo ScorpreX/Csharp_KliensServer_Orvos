@@ -25,8 +25,12 @@ namespace WebApi_Server.Repositories
 
         public static void SavePatients(IEnumerable<Patient> patients)
         {
+            if (!File.Exists(_filename))
+            {
+                File.Create(_filename).Close();
+            }
             var rawData = JsonSerializer.Serialize(patients);
-            using var stream = new FileStream(_filename, FileMode.OpenOrCreate, FileAccess.Write);
+            using var stream = new FileStream(_filename, FileMode.Truncate, FileAccess.Write);
             using var write = new StreamWriter(stream, Encoding.UTF8);
 
             write.WriteLine(rawData);

@@ -33,7 +33,7 @@ namespace WebApi_Server.Controllers
         public ActionResult Post([FromBody] Patient patient)
         {
             var patients = PatientRepository.LoadPatients().ToList();
-
+            patient.RecordTime = DateTime.Now;
             patient.Id = GetNewId(patients);
             patients.Add(patient);
             PatientRepository.SavePatients(patients);

@@ -1,0 +1,52 @@
+﻿@page "/patients/{Id}"
+
+
+@if (Patient == null)
+{
+	<p><em>Betöltés...</em></p>
+}
+else
+{
+<h3>@Patient.Name adatai</h3>
+
+<EditForm Model="@Patient" OnValidSubmit="@ModifyPatient">
+	<div class="mb-3 row">
+		<label for="Name" class="col-md-2 col-form-label">Név</label>
+		<div class="col-md-8">
+			<InputText id="Name" class="form-control" @bind-Value="@Patient.Name"></InputText>
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="Address" class="col-md-2 col-form-label">Cím</label>
+		<div class="col-md-8">
+			<InputText id="Address" class="form-control" @bind-Value="@Patient.Address"></InputText>
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="SSN" class="col-md-2 col-form-label">TAJ-szám</label>
+		<div class="col-md-8">
+			<InputText id="SSN" class="form-control" @bind-Value="@Patient.SocialSecurityNumber"></InputText>
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="Symptom" class="col-md-2 col-form-label">Panasz</label>
+		<div class="col-md-8">
+			<InputTextArea id="Symptom" class="form-control" @bind-Value="@Patient.Symptom"></InputTextArea>
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<label for="Date" class="col-md-2 col-form-label">Felvételi idő</label>
+		<div class="col-md-8">
+			<input type="datetime" id="Date" class="form-control" value="@Patient.RecordTime" readonly />
+		</div>
+	</div>
+	<div class="mb-3 row">
+		<div class="col-md-12">
+			<button type="submit" class="btn btn-primary">Módosítás</button>
+			<a href=@($"/patients/{Patient.Id}/delete") class="btn btn-danger">Páciens törlése</a>
+		</div>
+	</div>
+</EditForm>
+
+	
+}

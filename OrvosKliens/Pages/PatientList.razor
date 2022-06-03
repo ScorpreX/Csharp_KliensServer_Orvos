@@ -12,8 +12,9 @@ else
 		<thead>
 			<tr>
 				<td>Név</td>
-				<td>Cím</td>
+				<td>Tünet</td>
 				<td>TAJ szám</td>
+				<td>Cím</td>
 				<td>Feljegyzési idő</td>
 				<td></td>
 			</tr>
@@ -23,8 +24,9 @@ else
 			{
 				<tr>
 					<td>@p.Name</td>
-					<td>@p.Address</td>
+					<td>@p.Symptom</td>
 					<td>@p.SocialSecurityNumber</td>
+					<td>@p.Address</td>
 					<td>@p.RecordTime</td>
 					<td><a href=@($"patients/{p.Id}") class="btn btn-primary table-btn">Részletek</a></td>
 				</tr>

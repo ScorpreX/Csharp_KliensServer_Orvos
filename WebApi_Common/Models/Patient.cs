@@ -21,6 +21,8 @@ namespace WebApi_Common.Models
 
         [Required(ErrorMessage = "A tünetek mező kitöltése kötelező")]
         public string Symptom { get; set; }
+
+        public string Diagnosis { get; set; }
         public DateTime RecordTime { get; set; }
 
         public override string ToString()

@@ -3,9 +3,9 @@ using System.Text.RegularExpressions;
 
 namespace WebApi_Common.Validation
 {
-    internal class PatientNameValidation : ValidationAttribute
+    public class PatientNameValidation : ValidationAttribute
     {
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             string nameValue = value.ToString() ?? " ";
             if(!string.IsNullOrWhiteSpace(nameValue))
@@ -17,7 +17,7 @@ namespace WebApi_Common.Validation
                 }
                 else
                 {
-                    return new ValidationResult(" A név mező csak alfabetikus karaktereket tartalmazhat!",
+                    return new ValidationResult("A név mező csak alfabetikus karaktereket tartalmazhat!",
                         new[] { validationContext.MemberName });
                 }
             }

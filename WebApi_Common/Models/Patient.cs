@@ -16,7 +16,7 @@ namespace WebApi_Common.Models
         public string Address { get; set; }
 
         [Required(ErrorMessage ="A TAJ szám kitöltése kötelező!")]
-        [SssnNumberValidation]
+        [SsnNumberValidation]
         public string SocialSecurityNumber { get; set;}
 
         [Required(ErrorMessage = "A tünetek mező kitöltése kötelező")]

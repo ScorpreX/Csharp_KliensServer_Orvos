@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace WebApi_Common.Validation
 {
-    internal class SssnNumberValidation : ValidationAttribute
+    public class SsnNumberValidation : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

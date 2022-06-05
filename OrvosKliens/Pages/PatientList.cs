@@ -27,14 +27,8 @@ namespace OrvosKliens.Pages
 
         private void UpdatePatientsToList(ChangeEventArgs? args)
         {
-            if (args is not null)
-            {
-                _search = (string)args.Value;
-            }
-            else
-            {
-                _search = "";
-            }
+            _search = (string)args.Value ?? "";
+
             PatientsToList = _patients.Where(p => p.Name.Contains(_search)).ToArray();
         }
     }

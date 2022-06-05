@@ -52,6 +52,7 @@ namespace WebApi_Common.Models.Tests
         [DataRow("¥ƒœ£¢™")]
         [DataRow("×!¶¤¼ÇÏ")]
         [DataRow("ØÝþ=¸\"")]
+        [DataRow("4654564654657897")]
         [DataTestMethod]
         public void IsValid_WithNonAlphabeticCharacters_ErrorMessageShown(string name)
         {

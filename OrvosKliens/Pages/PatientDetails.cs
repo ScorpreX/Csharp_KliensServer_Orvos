@@ -13,6 +13,7 @@ namespace OrvosKliens.Pages
 
         [Parameter]
         public string Id { get; set; }
+        
         public Patient Patient { get; set; }
 
         private string _statusClass = "";
@@ -21,6 +22,7 @@ namespace OrvosKliens.Pages
         protected override async Task OnInitializedAsync()
         {
             Patient = await HttpClient.GetFromJsonAsync<Patient>($"patient/{Id}");
+
             await base.OnInitializedAsync();
         }
 
@@ -28,9 +30,21 @@ namespace OrvosKliens.Pages
         {
             _statusClass = "";
             _statusMessage = "";
-            await HttpClient.PutAsJsonAsync<Patient>($"patient", Patient);
-            _statusClass = "alert-info";
-            _statusMessage = "Adatok sikeresen módosítva!";
+
+            Patient.Diagnosis = Patient.Diagnosis ?? "";    //  Error 400 ha ez nincs itt
+
+            var res = await HttpClient.PutAsJsonAsync<Patient>($"patient", Patient);
+
+            if (res.IsSuccessStatusCode)
+            {
+                _statusClass = "alert-info";
+                _statusMessage = "Adatok sikeresen módosítva!";
+            }
+            else
+            {
+                _statusClass = "alert-danger";
+                _statusMessage = "Hiba az adatok módosítása közben!";
+            }
         }
 
         private void InvalidSubmit()
@@ -42,6 +56,7 @@ namespace OrvosKliens.Pages
         private async Task DeletePatient()
         {
             await HttpClient.DeleteAsync($"patient/{Id}");
+
             NavigationManager.NavigateTo("/");
         }
     }

@@ -21,11 +21,12 @@ namespace AssistantClient.Pages
             _statusMessage = "";
 
             Patient.Diagnosis = "";             //  Ha ez nincs beállítva akkor 400-as hibát dob
-            
-            await HttpClient.PostAsJsonAsync("patient", Patient);
-            
+
+            var message = await HttpClient.PostAsJsonAsync("patient", Patient);
+
             _statusClass = "alert-info";
             _statusMessage = "Beteg rögzítve";
+            HttpRespond(message);
             ClearInputFields();
 
         }
@@ -40,7 +41,16 @@ namespace AssistantClient.Pages
         private async Task InvalidSubmit()
         {
             _statusClass = "alert-danger";
-            _statusMessage = "A beteg rögzítése sikertelen";
+            _statusMessage = "A beteg rögzítése sikertelen!";
+        }
+
+        private void HttpRespond(HttpResponseMessage message)
+        {
+            if(!message.IsSuccessStatusCode)
+            {
+                _statusClass = "alert-danger";
+                _statusMessage = "Hiba a mentés során";
+            }
         }
 
     }

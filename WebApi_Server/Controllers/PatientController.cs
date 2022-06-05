@@ -21,7 +21,7 @@ namespace WebApi_Server.Controllers
             var patients = PatientRepository.LoadPatients();
 
             var patient = patients.FirstOrDefault(x => x.Id == id);
-            if (patient != null)
+            if (patient is not null)
             {
                 return Ok(patient);
             }
@@ -33,10 +33,14 @@ namespace WebApi_Server.Controllers
         public ActionResult Post([FromBody] Patient patient)
         {
             var patients = PatientRepository.LoadPatients().ToList();
+
             patient.RecordTime = DateTime.Now;
             patient.Id = GetNewId(patients);
+
             patients.Add(patient);
+
             PatientRepository.SavePatients(patients);
+
             return Ok();
         }
 
@@ -46,11 +50,13 @@ namespace WebApi_Server.Controllers
             var patients = PatientRepository.LoadPatients().ToList();
 
             var patientToUpdate = patients.FirstOrDefault(p => p.Id == patient.Id);
-            if (patientToUpdate != null)
+            if (patientToUpdate is not null)
             {
                 patients.Remove(patientToUpdate);
                 patients.Add(patient);
+
                 PatientRepository.SavePatients(patients);
+
                 return Ok();
             }
 
@@ -63,7 +69,7 @@ namespace WebApi_Server.Controllers
             var patients = PatientRepository.LoadPatients().ToList();
 
             var patientToDelete = patients.FirstOrDefault(p => p.Id == id);
-            if (patientToDelete != null)
+            if (patientToDelete is not null)
             {
                 patients.Remove(patientToDelete);
 

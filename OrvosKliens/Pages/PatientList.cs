@@ -10,7 +10,7 @@ namespace OrvosKliens.Pages
         public Patient[] Patients { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            Patients = await HttpClient.GetFromJsonAsync<Patient[]>(HttpClient.BaseAddress + "/patient");
+            Patients = await HttpClient.GetFromJsonAsync<Patient[]>("patient");
             Patients = Patients.OrderBy(p => p.RecordTime).ToArray();
             await base.OnInitializedAsync();   
         }

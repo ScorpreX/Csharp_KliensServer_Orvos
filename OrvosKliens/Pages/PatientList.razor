@@ -1,4 +1,4 @@
-﻿@page "/patients"
+﻿@page "/"
 
 <h3>Páciensek</h3>
 
@@ -28,7 +28,7 @@ else
 					<td>@p.SocialSecurityNumber</td>
 					<td>@p.Address</td>
 					<td>@p.RecordTime</td>
-					<td><a href=@($"patients/{p.Id}") class="btn btn-primary table-btn">Részletek</a></td>
+					<td><a href=@($"{p.Id}") class="btn btn-primary table-btn">Részletek</a></td>
 				</tr>
 			}
 		</tbody>

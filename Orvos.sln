@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssistantClient", "Assistan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrvosKliens", "OrvosKliens\OrvosKliens.csproj", "{B1D75C37-B3EA-4005-AABA-1C667FA2C571}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common.Tests", "WebApi_Common.Tests\WebApi_Common.Tests.csproj", "{2F437187-837F-4BDF-A528-3AF19535F83D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common.Tests", "WebApi_Common.Tests\WebApi_Common.Tests.csproj", "{2F437187-837F-4BDF-A528-3AF19535F83D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

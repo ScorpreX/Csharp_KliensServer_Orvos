@@ -1,4 +1,4 @@
-﻿@page "/patients/{Id}"
+﻿@page "/{Id}"
 
 
 @if (Patient == null)
@@ -9,7 +9,8 @@ else
 {
 <h3>@Patient.Name adatai</h3>
 
-<EditForm Model="@Patient" OnValidSubmit="@ModifyPatient">
+<EditForm Model="@Patient" OnValidSubmit="@ModifyPatient" OnInvalidSubmit="@InvalidSubmit">
+	<div class="alert @_statusClass">@_statusMessage</div>
 	<DataAnnotationsValidator />
 	<div class="mb-3 row">
 		<label for="Name" class="col-md-2 col-form-label">Név</label>
@@ -55,11 +56,29 @@ else
 	<div class="mb-3 row">
 		<div class="col-md-12">
 			<button type="submit" class="btn btn-primary">Módosítás</button>
-			<a href=@($"/patients/{Patient.Id}/delete") class="btn btn-danger">Páciens törlése</a>
-			<a href=@($"/patients")><input type="button" value="Mégse" class="btn btn-secondary" /></a>
+			<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal">Páciens törlése</button>
+			<a href=@($"/")><input type="button" value="Mégse" class="btn btn-secondary" /></a>
 		</div>
 	</div>
 </EditForm>
+
+<div class="modal fade" tabindex="-1" id="modal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p>Biztosan törtli @Patient.Name-t a rendszerből?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+				<button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick=DeletePatient>Törlés</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 	
 }

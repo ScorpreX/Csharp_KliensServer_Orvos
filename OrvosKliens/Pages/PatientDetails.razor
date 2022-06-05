@@ -1,9 +1,9 @@
 ﻿@page "/{Id}"
 
-
 @if (Patient == null)
 {
-	<p><em>Betöltés...</em></p>
+	<Loading></Loading>
+	<PageTitle>Páciens adatai</PageTitle>
 }
 else
 {

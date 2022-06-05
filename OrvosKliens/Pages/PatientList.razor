@@ -1,22 +1,23 @@
 ﻿@page "/"
 
-<h3>Páciensek</h3>
+<PageTitle>Páciensek listája</PageTitle>
 
 @if (PatientsToList == null)
 {
-	<p><em>Betöltés...</em></p>
+	<Loading></Loading>
 }
 else
 {
+	<h3>Páciensek</h3>
 	<input type="text" class="form-control" placeholder="Keresés név szerint" value="@_search" @oninput=UpdatePatientsToList />
 	
 	<table class="table">
 		<thead>
 			<tr>
 				<td>Név</td>
-				<td>Tünet</td>
-				<td>TAJ szám</td>
 				<td>Cím</td>
+				<td>TAJ szám</td>
+				<td>Panasz</td>
 				<td>Feljegyzési idő</td>
 				<td></td>
 			</tr>
@@ -26,9 +27,9 @@ else
 			{
 				<tr>
 					<td>@p.Name</td>
-					<td>@p.Symptom</td>
-					<td>@p.SocialSecurityNumber</td>
 					<td>@p.Address</td>
+					<td>@p.SocialSecurityNumber</td>
+					<td>@p.Symptom</td>
 					<td>@p.RecordTime</td>
 					<td><a href=@($"{p.Id}") class="btn btn-primary table-btn">Részletek</a></td>
 				</tr>

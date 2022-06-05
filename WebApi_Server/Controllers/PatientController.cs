@@ -50,11 +50,13 @@ namespace WebApi_Server.Controllers
             var patients = PatientRepository.LoadPatients().ToList();
 
             var patientToUpdate = patients.FirstOrDefault(p => p.Id == patient.Id);
-            if (patientToUpdate != null)
+            if (patientToUpdate is not null)
             {
                 patients.Remove(patientToUpdate);
                 patients.Add(patient);
+
                 PatientRepository.SavePatients(patients);
+
                 return Ok();
             }
 

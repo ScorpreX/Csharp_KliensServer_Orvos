@@ -18,7 +18,9 @@ namespace OrvosKliens.Pages
         protected override async Task OnInitializedAsync()
         {
             _patients = await HttpClient.GetFromJsonAsync<Patient[]>("patient");
-            _patients = _patients.OrderBy(p => p.RecordTime).ToArray();
+            _patients = _patients
+                .OrderBy(p => p.RecordTime)
+                .ToArray();
 
             UpdatePatientsToList(null);
             

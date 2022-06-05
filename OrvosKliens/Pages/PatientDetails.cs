@@ -41,7 +41,7 @@ namespace OrvosKliens.Pages
 
         private async Task DeletePatient()
         {
-            await HttpClient.DeleteAsync(HttpClient.BaseAddress + $"patient/{Id}");
+            await HttpClient.DeleteAsync($"patient/{Id}");
             NavigationManager.NavigateTo("/");
         }
     }

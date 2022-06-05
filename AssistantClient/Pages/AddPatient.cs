@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
+using System.Text.Json;
 using WebApi_Common.Models;
 
 namespace AssistantClient.Pages
@@ -18,10 +19,13 @@ namespace AssistantClient.Pages
         {
             _statusClass = "";
             _statusMessage = "";
+
+            Patient.Diagnosis = "";             //  Ha ez nincs beállítva akkor 400-as hibát dob
+            
             await HttpClient.PostAsJsonAsync("patient", Patient);
+            
             _statusClass = "alert-info";
             _statusMessage = "Beteg rögzítve";
-            await Task.Delay(3000);
             ClearInputFields();
 
         }

@@ -9,6 +9,7 @@ namespace WebApi_Common.Validation
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             string ssnValue = value.ToString() ?? " ";
+
             if (Regex.IsMatch(ssnValue, @"^\d{3} \d{3} \d{3}$"))
             {
                 return null;

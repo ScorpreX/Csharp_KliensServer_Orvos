@@ -27,7 +27,7 @@ A program letöltése 2 módon történhet:
 ## Használat 
 
  Az állományok letöltését követően a [Visual Studio](https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2022&source=VSLandingPage&includeRecommended=true&cid=2030 "Download Visual Studio") és a [.NET 6.0](https://dotnet.microsoft.com/en-us/download "Download .NET 6.0") verziójának telepítése szükséges. Ezt követően az `.sln` fájlt megnyitva a projekten beállítandó a `Solution Explorer`-ben a 2 db kliens és 1 db szerver elindításának engedélyezése. A program ezentúl a középen elhellyezkedő `Start` gomb megnyomásával indítható, az indítást követően az alapértelmezett böngésző ablakaiban megnyílik az orvosi, illetve az aszisztensi kezelő felület.
- Az aszistens kliensét lehetőség van a beteg és adatainak rögzítésére, míg az orvosi felületen listázhatjuk a felvett betegeket, illetve részleteiben emgtekinthetjük a páciens adatait, és diagnózist állapíthatunk meg számára.
+ Az aszistensi felületen lehetőség van a beteg és adatainak rögzítésére, míg az orvosin listázhatjuk a felvett betegeket, illetve részleteiben emgtekinthetjük a páciens adatait, és diagnózist állapíthatunk meg számára.
  
 
 

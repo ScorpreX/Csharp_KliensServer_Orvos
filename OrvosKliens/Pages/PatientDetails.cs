@@ -31,8 +31,10 @@ namespace OrvosKliens.Pages
             _statusClass = "";
             _statusMessage = "";
 
+            Patient.Diagnosis = Patient.Diagnosis ?? "";    //  Error 400 ha ez nincs itt
+
             var res = await HttpClient.PutAsJsonAsync<Patient>($"patient", Patient);
-            
+
             if (res.IsSuccessStatusCode)
             {
                 _statusClass = "alert-info";

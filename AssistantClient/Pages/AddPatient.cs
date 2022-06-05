@@ -16,6 +16,8 @@ namespace AssistantClient.Pages
 
         private async Task Submit()
         {
+            _statusClass = "";
+            _statusMessage = "";
             await HttpClient.PostAsJsonAsync("patient", Patient);
             _statusClass = "alert-info";
             _statusMessage = "Beteg rögzítve";

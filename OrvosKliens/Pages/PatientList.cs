@@ -1,5 +1,6 @@
 ﻿using WebApi_Common.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace OrvosKliens.Pages
 {
@@ -7,12 +8,30 @@ namespace OrvosKliens.Pages
     {
         [Inject]
         public HttpClient HttpClient { get; set; }
-        public Patient[] Patients { get; set; }
+        private Patient[] _patients { get; set; }
+        public Patient[] PatientsToList { get; set; }
+
+        private string _search { get; set; }
         protected override async Task OnInitializedAsync()
         {
-            Patients = await HttpClient.GetFromJsonAsync<Patient[]>("patient");
-            Patients = Patients.OrderBy(p => p.RecordTime).ToArray();
+            _patients = await HttpClient.GetFromJsonAsync<Patient[]>("patient");
+            _patients = _patients.OrderBy(p => p.RecordTime).ToArray();
+            UpdatePatientsToList(null);
             await base.OnInitializedAsync();   
+        }
+
+        private void UpdatePatientsToList(ChangeEventArgs? args)
+        {
+            if (args is not null)
+            {
+                _search = (string)args.Value;
+            }
+            else
+            {
+                _search = "";
+            }
+            PatientsToList = _patients.Where(p => p.Name.Contains(_search)).ToArray();
+            //PatientsToList = _patients;
         }
     }
 }

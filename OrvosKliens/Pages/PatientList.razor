@@ -2,12 +2,14 @@
 
 <h3>Páciensek</h3>
 
-@if (Patients == null)
+@if (PatientsToList == null)
 {
 	<p><em>Betöltés...</em></p>
 }
 else
 {
+	<input type="text" class="form-control" placeholder="Keresés név szerint" value="@_search" @oninput=UpdatePatientsToList />
+	
 	<table class="table">
 		<thead>
 			<tr>
@@ -20,7 +22,7 @@ else
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var p in Patients)
+			@foreach (var p in PatientsToList)
 			{
 				<tr>
 					<td>@p.Name</td>

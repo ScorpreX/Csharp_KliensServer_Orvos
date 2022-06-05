@@ -5,7 +5,6 @@ namespace WebApi_Common.Models
 {
     public class Patient
     {
-
         public long Id { get; set; }
 
         [Required(ErrorMessage = "A név kitöltése kötelező")]
@@ -23,6 +22,7 @@ namespace WebApi_Common.Models
         public string Symptom { get; set; }
 
         public string Diagnosis { get; set; }
+        
         public DateTime RecordTime { get; set; }
 
         public override string ToString()
